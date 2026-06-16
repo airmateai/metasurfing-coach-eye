@@ -6,6 +6,7 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { width:1080px; height:1080px; background:#ffffff; overflow:hidden; }
+  @media screen { html { transform-origin:top left; transform:scale(var(--s,1)); } }
   .page {
     width:1080px; height:1080px;
     padding:70px 80px 60px;
@@ -109,5 +110,6 @@
     <span class="brand">Metasurfing Books</span>
   </div>
 </div>
+<script>var s=Math.min(window.innerWidth/1080,window.innerHeight/1080);document.documentElement.style.setProperty("--s",s);window.addEventListener("resize",function(){var s=Math.min(window.innerWidth/1080,window.innerHeight/1080);document.documentElement.style.setProperty("--s",s);});</script>
 </body>
 </html>
