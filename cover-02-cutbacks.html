@@ -2,64 +2,101 @@
 <html>
 <head>
 <meta charset="UTF-8"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet"/>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { width:595px; height:842px; background:#ffffff; overflow:hidden; }
-  .page { width:595px; height:842px; padding:52px 56px 46px; display:flex; flex-direction:column; align-items:center; position:relative; }
+  html, body { width:1080px; height:1080px; background:#ffffff; overflow:hidden; }
+  .page {
+    width:1080px; height:1080px;
+    padding:70px 80px 60px;
+    display:flex; flex-direction:column;
+    position:relative;
+  }
 
-  .top-rule  { width:100%; height:0.8px; background:#1a1a1a; margin-bottom:10px; }
-  .header    { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:300; letter-spacing:5px; text-transform:uppercase; color:#1a1a1a; text-align:center; margin-bottom:10px; }
-  .top-rule2 { width:100%; height:0.4px; background:#1a1a1a; }
+  .rule-top { width:100%; height:1.5px; background:#111; }
+  .header {
+    font-family:'Montserrat',sans-serif; font-size:18px; font-weight:300;
+    letter-spacing:10px; text-transform:uppercase; color:#111;
+    text-align:center; padding:16px 0 15px;
+  }
+  .rule-top2 { width:100%; height:0.8px; background:#111; }
 
-  .title-wrap { margin-top:auto; position:relative; line-height:1; text-align:center; width:100%; }
-  .ghost-letter { position:absolute; font-family:'Montserrat',sans-serif; font-size:260px; font-weight:700; color:rgba(0,0,0,0.05); top:-20px; left:50%; transform:translateX(-50%); line-height:1; pointer-events:none; }
-  .title-line { display:flex; align-items:baseline; justify-content:center; position:relative; z-index:1; }
-  .big-letter  { font-family:'Montserrat',sans-serif; font-size:140px; font-weight:700; color:#1a1a1a; line-height:1; letter-spacing:-2px; }
-  .rest-letters{ font-family:'Montserrat',sans-serif; font-size:48px; font-weight:300; color:#1a1a1a; letter-spacing:8px; margin-left:4px; margin-bottom:8px; }
+  .title-wrap {
+    flex:1; display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    position:relative;
+  }
+  .ghost {
+    position:absolute;
+    font-family:'Montserrat',sans-serif; font-size:520px; font-weight:900;
+    color:rgba(0,0,0,0.04); line-height:1;
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    pointer-events:none; user-select:none;
+    white-space:nowrap;
+  }
+  .title-line {
+    display:flex; align-items:baseline; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .big-letter {
+    font-family:'Montserrat',sans-serif;
+    font-size:280px; font-weight:900; color:#111;
+    line-height:1; letter-spacing:-4px;
+  }
+  .rest {
+    font-family:'Montserrat',sans-serif;
+    font-size:72px; font-weight:200; color:#111;
+    letter-spacing:10px; margin-left:8px; padding-bottom:10px;
+  }
 
-  .mid-rule { width:100%; height:0.6px; background:#1a1a1a; margin-top:18px; margin-bottom:14px; }
+  .rule-mid { width:100%; height:1px; background:#111; margin-top:40px; margin-bottom:28px; }
+  .meta { display:flex; align-items:center; justify-content:center; gap:12px; }
+  .meta-label {
+    font-family:'Montserrat',sans-serif; font-size:18px; font-weight:300;
+    letter-spacing:6px; text-transform:uppercase; color:#999;
+  }
+  .meta-num {
+    font-family:'Montserrat',sans-serif; font-size:18px; font-weight:300;
+    letter-spacing:6px; color:#999;
+  }
+  .subtitle {
+    font-family:'Montserrat',sans-serif; font-size:20px; font-weight:300;
+    font-style:italic; color:#666; line-height:1.7;
+    text-align:center; margin-top:24px;
+  }
 
-  .meta { display:flex; justify-content:center; align-items:baseline; gap:6px; }
-  .tech-label { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:300; letter-spacing:4px; text-transform:uppercase; color:#888; }
-  .note-num   { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:300; letter-spacing:4px; color:#888; }
-
-  .subtitle { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:300; font-style:italic; color:#555; line-height:1.7; margin-top:22px; letter-spacing:0.3px; text-align:center; }
-
-  .spacer { flex:1; }
-  .bottom-rule { width:100%; height:0.4px; background:#1a1a1a; margin-bottom:18px; }
-  .bottom-area { display:flex; flex-direction:column; align-items:center; gap:8px; }
-  .logo-img { width:40px; height:40px; object-fit:contain; filter:grayscale(100%); }
-  .brand    { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:300; letter-spacing:3.5px; text-transform:uppercase; color:#aaa; }
+  .rule-bot { width:100%; height:0.8px; background:#111; margin-bottom:24px; }
+  .bottom { display:flex; flex-direction:column; align-items:center; gap:12px; }
+  .logo-img { width:72px; height:72px; object-fit:contain; filter:grayscale(100%); }
+  .brand {
+    font-family:'Montserrat',sans-serif; font-size:14px; font-weight:300;
+    letter-spacing:5px; text-transform:uppercase; color:#bbb;
+  }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="top-rule"></div>
+  <div class="rule-top"></div>
   <div class="header">The Coach Eye</div>
-  <div class="top-rule2"></div>
+  <div class="rule-top2"></div>
 
   <div class="title-wrap">
-    <div class="ghost-letter">C</div>
+    <div class="ghost">C</div>
     <div class="title-line">
       <span class="big-letter">C</span>
-      <span class="rest-letters">UTBACKS</span>
+      <span class="rest">UTBACKS</span>
     </div>
+    <div class="rule-mid"></div>
+    <div class="meta">
+      <span class="meta-label">Notes</span>
+      <span class="meta-num">#02</span>
+    </div>
+    <div class="subtitle">Consideraciones técnicas para<br>profesores de surf y surf coaches</div>
   </div>
 
-  <div class="mid-rule"></div>
-  <div class="meta">
-    <span class="tech-label">Notes</span>
-    <span class="note-num">#02</span>
-  </div>
-  <div class="subtitle">
-    Consideraciones técnicas para<br>profesores de surf y surf coaches
-  </div>
-
-  <div class="spacer"></div>
-  <div class="bottom-rule"></div>
-  <div class="bottom-area">
-    <img class="logo-img" src="logo-m.png" alt="Metasurfing Books"/>
+  <div class="rule-bot"></div>
+  <div class="bottom">
+    <img class="logo-img" src="logo-m.png" alt="Metasurfing"/>
     <span class="brand">Metasurfing Books</span>
   </div>
 </div>
